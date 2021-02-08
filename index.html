@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <title>Boolzapp</title>
+    </head>
+    <body>
+      <!--SFONDO-->
+      <div id="green"></div>
+      <!-- APP -->
+      <div id="app" class="container">
+      <!-- PARTE SINISTRA CONTAINER -->
+        <div id="parteSx">
+          <!-- TOP SX -->
+          <div id="userData">
+            <div id="imgUser">
+                <img src="img/avatar_7.jpg" alt="">
+            </div>
+            <span class="blackColor">Daniele Lupi</span>
+            <div id="userComandi" class="greyColor">
+              <i class="fas fa-circle-notch"></i>
+              <i class="fas fa-comment-alt"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <!-- NOTIFICHE -->
+          <div id="notifiche">
+            <div id="slashBell">
+              <i class="fas fa-bell-slash"></i>
+            </div>
+            <div id="infoNotifiche">
+              <div id="riceviNotifiche">
+                Ricevi notifiche di nuovi messaggi
+              </div>
+              <a href="#" class="greyColor">Attiva notifiche desktop</a>
+            </div>
+          </div>
+          <!-- BARRA RICERCA -->
+          <div id="cercaChat">
+            <div id="searchChat">
+              <i class="fas fa-search greyColor" @click= "cercaChat"></i>
+              <input type="text" class="greyColor" placeholder="Cerca o inizia una nuova chat" v-model="inputSearch" @keyup= "cercaChat">
+            </div>
+          </div>
+          <!-- CHAT  -->
+          <div id="allChat">
+            <!-- CHAT SINGOLA -->
+            <div v-for="(contatto, i) in contatti" v-if="contatto.visibile" @click="attivaContatto(i)" class="Chat">
+              <div class="imgContatto">
+                <img :src="contatto.immagineContatto" alt="">
+              </div>
+              <div class="infoContatto">
+                <p class="nomeContatto blackColor">
+                  {{contatto.nomeContatto}}
+                </p>
+                <p class="messaggioAnteprima greyColor" v-if="contatto.messaggiChat.length >= 1">
+                  {{contatto.messaggiChat[contatto.messaggiChat.length - 1].testo.substring (0,10)}}...
+                </p>
+              </div>
+              <div class="infoTime greyColor">
+                {{lastOnline}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PARTE DESTRA CONTAINER -->
+        <div id="parteDx">
+          <!-- TOP DX -->
+          <div id="datiContatto">
+            <div id="imgContattoAttivo">
+              <img :src="contatti[indiceContattoAttivo].immagineContatto" alt="">
+            </div>
+            <div id="contattoAttivo">
+              <div class="nomeContattoAttivo blackColor">
+                {{contatti[indiceContattoAttivo].nomeContatto}}
+              </div>
+              <div class="ultimoAccesso greyColor">
+                Ultimo accesso il {{lastOnline}}
+              </div>
+            </div>
+
+            <div id="comandiChat" class="greyColor">
+              <i class="fas fa-search"></i>
+              <i class="fas fa-paperclip"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
+
+          <!-- CHAT APERTA -->
+          <div id="spazioChat">
+
+            <!-- USER SENT -->
+            <div v-for="(message, i) in contatti[indiceContattoAttivo].messaggiChat" :class="['messageText', message.tipo]">
+              <p>{{message.testo}}</p>
+              <p class="dataTime greyColor">{{message.timeInfo}}</p>
+            </div>
+
+          </div>
+          <!-- INPUT INFERIORE DESTRO -->
+          <div id="inputMessaggio">
+            <i class="far fa-laugh greyColor"></i>
+            <input type="text" value="" placeholder="Scrivi un messaggio" v-model="inputMessaggio"  @keyup.enter= "inviaMessaggio" >
+            <i class="fas fa-microphone greyColor" @click= "inviaMessaggio"></i>
+          </div>
+        </div>
+      </div>
+
+
+
+      <script src="javascript/myscript.js"></script>
+    </body>
+</html>

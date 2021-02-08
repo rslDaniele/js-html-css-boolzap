@@ -1,0 +1,356 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  background-color: #d8dbd5;
+}
+
+.greyColor {
+  color: #919191;
+}
+
+.blackColor {
+  color: #000000;
+}
+
+/* SFONDO */
+#green {
+  background-color: #009688;
+  height: 127px;
+}
+
+/* APP */
+div.container {
+  width: 73%;
+  position: absolute;
+  left: 13.5%;
+  top: 2%;
+  height: calc(100vh - (100vh * 0.04));
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* PARTE SINISTRA CONTAINER */
+#parteSx {
+  width: 30%;
+  height: 100%;
+}
+
+/* PARTE SINISTRA */
+#userData {
+  height: 60px;
+  background-color: #ededed;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 10px;
+}
+
+#userData #imgUser {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+#userData #imgUser img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+#userData span {
+  flex: 4;
+  margin-left: 5px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+#userComandi {
+  flex: 3;
+  text-align: right;
+}
+
+#userComandi i {
+  margin: 0 10px;
+  font-size: 22px;
+}
+
+/*NOTIFICHE*/
+#notifiche {
+  height: 85px;
+  background-color: #9de1fe;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+}
+
+#notifiche #slashBell {
+  flex: 2;
+  background-color: #ffffff;
+  color: #9de1fe;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 50%;
+  padding: 17px 0px;
+  margin: 0 5px;
+}
+
+#notifiche #infoNotifiche {
+  flex: 10;
+  margin-left: 5px;
+}
+
+#notifiche #infoNotifiche #riceviNotifiche {
+  font-size: 18px;
+}
+
+#notifiche #infoNotifiche a {
+  font-size: 14px;
+}
+
+/* BARRA RICERCA CHAT*/
+#cercaChat {
+  height: 50px;
+  background-color: #f6f6f6;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+#searchChat {
+  flex: 1;
+  border: 1px solid #EAEAEA;
+  background-color: #ffffff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+#searchChat i {
+  margin-left: 10px;
+}
+
+#searchChat input {
+  border: none;
+  font-size: 15px;
+  width: 100%;
+  margin-left: 45px;
+  padding: 2px;
+}
+
+/* CHAT CONTATTI */
+div#allChat {
+  height: calc(100% - 195px);
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+div#allChat .Chat {
+  height: 80px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+div#allChat div.imgContatto {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#allChat div.imgContatto img {
+  width: 80%;
+  border-radius: 50%;
+}
+
+div#allChat div.infoContatto {
+  flex: 4;
+  margin-left: 5px;
+  padding-top: 5px;
+}
+
+div#allChat div.infoContatto p.nomeContatto {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+div.infoTime {
+  flex: 4;
+  text-align: right;
+  margin-right: 5px;
+  padding-top: 5px;
+  font-size: 14px;
+}
+
+/* PARTE DESTRA DEL CONTENITORE */
+#parteDx {
+  width: 70%;
+  height: 100%;
+}
+
+/* TOP PARTE DESTRA */
+#datiContatto {
+  height: 60px;
+  background-color: #ededed;
+  border-left: 1px solid grey;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#datiContatto #imgContattoAttivo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#datiContatto #imgContattoAttivo img {
+  width: 65%;
+  border-radius: 50%;
+}
+
+#datiContatto div#contattoAttivo {
+  flex: 8;
+}
+
+#datiContatto div#contattoAttivo div.nomeContattoAttivo {
+  font-size: 18px;
+}
+
+#datiContatto div#contattoAttivo div.ultimoAccesso {
+  font-size: 14px;
+}
+
+#comandiChat {
+  flex: 3;
+  text-align: right;
+}
+
+#comandiChat i {
+  padding-right: 10px;
+  margin: 0 5px;
+  font-size: 22px;
+}
+
+/* SEZIONE CENTRALE*/
+#spazioChat {
+  height: calc(100% - 120px);
+  overflow-y: auto;
+  background-image: url(../img/mine.jpg);
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* CHAT SELEZIONATA */
+#spazioChat div.messageText {
+  min-width: 25%;
+  max-width: 45%;
+  word-wrap: break-word;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 15px 60px;
+}
+
+/* SENT*/
+#spazioChat div.sentMessage {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+}
+
+/* RECEIVED */
+#spazioChat div.receivedMessage {
+  background-color: #ffffff;
+  align-self: flex-start;
+}
+
+/* ORARIO */
+#spazioChat p.dataTime {
+  font-size: 10px;
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* INPUT */
+#inputMessaggio {
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-left: 1px solid grey;
+}
+
+#inputMessaggio i:first-of-type, #inputMessaggio i:last-of-type {
+  flex: 1;
+  font-size: 25px;
+  text-align: center;
+}
+
+#inputMessaggio input {
+  flex: 9;
+  border: none;
+  padding: 10px;
+}
+
+/* REGOLE RESPONSIVE*/
+@media all and (max-width: 1179px) {
+  #userData #imgUser img, div.imgContatto img, #datiContatto #imgContattoAttivo img {
+    width: 40px;
+  }
+
+  #userData span {
+    display: none;
+  }
+}
+
+@media all and (max-width: 1400px) {
+  div.container {
+    width: 100%;
+    height: 100vh;
+    position: initial;
+  }
+
+  #green {
+    display: none;
+  }
+}
+
+@media all and (min-width: 1401px) and (max-width: 1500px) {
+  div.container {
+    width: 95%;
+    position: absolute;
+    left: 2.5%;
+    top: 2%;
+    height: calc(100vh - (100vh * 0.04));
+  }
+}
+
+@media all and (min-width: 1501px) and (max-width: 1600px) {
+  div.container {
+    width: 87%;
+    position: absolute;
+    left: 6.5%;
+    top: 2%;
+    height: calc(100vh - (100vh * 0.04));
+  }
+}
+
+@media all and (min-width: 1601px) and (max-width: 1700px) {
+  div.container {
+    width: 82%;
+    position: absolute;
+    left: 9%;
+    top: 2%;
+    height: calc(100vh - (100vh * 0.04));
+  }
+}
